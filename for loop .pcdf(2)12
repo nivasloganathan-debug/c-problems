@@ -1,0 +1,70 @@
+/******************************************************************************
+
+12 Fuel Price Shock Detector
+Description
+A transport company records daily fuel prices.
+Problem Statement
+Find highest fuel price and count days price exceeded ₹100.
+Input Format
+Integer N
+ N integers (fuel price per day)
+Output Format
+Highest Price
+ High Price Days
+Test Cases
+Input
+5
+95 102 110 98 105
+
+Output
+Highest Price: 110
+High Price Days: 3
+
+Input
+3
+90 92 99
+
+Output
+Highest Price: 99
+High Price Days: 0
+
+Input
+4
+120 115 130 110
+
+Output
+Highest Price: 130
+High Price Days: 4
+
+Explanation (TC1)
+The loop tracks max value and counts prices over 100.
+Explanation (TC3)
+Every day crosses the limit
+.
+*******************************************************************************/
+#include <stdio.h>
+int main() {
+    int N;
+    int price;
+    int highest;
+    int highDays = 0;
+    scanf("%d", &N);
+    for(int i = 0; i < N; i++) {
+        scanf("%d", &price);
+
+        if(i == 0) {
+            highest = price;   
+        }
+
+        if(price > highest) {
+            highest = price;   
+        }
+
+        if(price > 100) {
+            highDays++;        
+        }
+    }
+    printf("Highest Price: %d\n", highest);
+    printf("High Price Days: %d\n", highDays);
+    return 0;
+}
